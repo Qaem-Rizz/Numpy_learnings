@@ -125,4 +125,4 @@ print("Filtered Values:", filtered)  # Output: [30 40 50 60]
 
 ## ⭐ Support
 
-If you found this repository helpful or are using it as a reference for learning NumPy, feel free to give it a **Star (⭐)**!
+If you found this repository cool for NumPy, feel free to give it a **Star (⭐)**!
