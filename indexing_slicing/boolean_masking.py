@@ -16,3 +16,7 @@ print(array[array == 30])  # returns elements equal to 30 - gives result as [30]
 print(array[array != 30])  # returns elements not equal to 30 - gives result as [10 20 40 50] - a List form.
 
 #etc etc etc...
+
+
+"""BOOLEAN MASKING is way more faster to traverse over data in a large dataset - so extensively used in data science and machine learning applications."""
+
