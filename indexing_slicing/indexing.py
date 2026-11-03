@@ -12,3 +12,13 @@ print(array[2])  # Accessing the third element (30)
 print(array[-1])  # Accessing the last element (50)
 
 print(array[10]) # This will raise an IndexError since the index is out of bounds
+
+
+
+#note : the above code is for 1D array indexing. For multi-dimensional arrays, you can use multiple indices to access elements. example:
+
+array2 = np.array([[1, 2, 3], 
+                   [4, 5, 6], 
+                   [7, 8, 9]])
+
+print(array2[0, 1])  # Accessing the element in the first row and second column (2)
