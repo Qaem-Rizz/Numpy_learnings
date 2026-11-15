@@ -1,128 +1,72 @@
-# NumPy Learnings 🚀
-
-A structured collection of notes, code snippets, and practical implementations as I learn NumPy from scratch.
-
+# NumPy Learnings
+ 
+My personal notes and practice scripts from learning NumPy. Each concept has its own small, runnable `.py` file with comments explaining what it does and why it matters.
+ 
+![Python](https://img.shields.io/badge/Python-3.8+-3776AB?logo=python&logoColor=white)
+![NumPy](https://img.shields.io/badge/NumPy-013243?logo=numpy&logoColor=white)
+ 
 ---
-
-## 📌 Overview
-
-This repository tracks my progress learning **NumPy** (Numerical Python). The primary focus is to transition from standard Python lists to fast, array-based numerical computing for data analysis, machine learning, and performance optimization.
-
+ 
+## What's inside
+ 
+| Folder | What I practiced |
+|---|---|
+| `numpy_basics/` | Where NumPy came from, creating arrays, `np.arange()`, `np.eye()` |
+| `Numpy_arrays/` | `.shape`, `.size`, `.ndim`, `.dtype`, `.astype()` |
+| `operations/` | Element-wise arithmetic without loops |
+| `Aggregation/` | `sum`, `mean`, `std`, `var`, `min`, `max`, `prod`, `cumsum`, `cumprod` |
+| `indexing_slicing/` | Indexing, slicing, fancy indexing, boolean masking |
+| `Reshaping and Manipulating/` | `reshape()`, `flatten()` vs `ravel()` |
+| `Advance_Numpy/` | `append`, `insert`, `delete`, `concatenate`, `vstack`/`hstack`, splitting |
+| `Broadcasting/` | Broadcasting rules, 1D to 2D, what breaks when shapes don't match |
+| `vectorisation/` | Loop-based vs vectorized code |
+| `Handling_missing_values/` | `isnan`, `isinf`, `nan_to_num` |
+ 
 ---
-
-## 💡 Why NumPy?
-
-- **C-Engine Speed:** Written in C/Fortran under the hood, running much faster than standard Python loops.
-- **Contiguous Memory:** Stores elements in contiguous memory blocks for fast CPU cache access.
-- **Vectorization:** Operations run on entire arrays simultaneously without explicit `for` loops.
-
+ 
+## A few things I found worth noting
+ 
+**Vectorization vs loops**
+```python
+# plain Python
+result = [x + y for x, y in zip([1, 2, 3], [4, 5, 6])]
+ 
+# NumPy
+result = np.array([1, 2, 3]) + np.array([4, 5, 6])   # [5 7 9]
+```
+ 
+**Boolean masking**
+```python
+arr = np.array([10, 20, 30, 40, 50])
+arr[arr > 30]    # [40 50]
+```
+ 
+**`flatten()` vs `ravel()`**: `flatten()` returns a copy, `ravel()` returns a view, so changing the ravelled array can change the original.
+ 
+**Broadcasting**: adding a 1D array to a 2D array works row-wise when the shapes are compatible. If not, NumPy raises a `ValueError`.
+ 
 ---
-
-## 📋 Prerequisites
-
-Before running the code in this repository, ensure you have:
-
-- **Python 3.8+** installed on your system.
-- **Git** installed for repository cloning.
-- Basic familiarity with Python syntax.
-
----
-
-## ⚙️ Installation & Local Setup
-
-Follow these steps to clone the repository and run the scripts locally.
-
-### 1. Clone the Repository
+ 
+## Running the scripts
+ 
 ```bash
 git clone https://github.com/Qaem-Rizz/Numpy_learnings.git
 cd Numpy_learnings
-```
-
-### 2. Set Up a Virtual Environment
-
-**On Windows (PowerShell):**
-```powershell
-python -m venv venv
-.\venv\Scripts\Activate.ps1
-```
-
-**On macOS / Linux:**
-```bash
-python3 -m venv venv
-source venv/bin/activate
-```
-
-### 3. Install NumPy
-```bash
 pip install numpy
+python Broadcasting/broadcasting.py
 ```
-
+ 
+Every script is standalone, so any file can be run on its own.
+ 
 ---
-
-## 📚 Curriculum & Topics Covered
-
-### 1. Introduction & Array Basics
-- Difference between Python Lists vs NumPy Arrays
-- Creating 1D, 2D, and Multi-Dimensional Arrays
-- Array generation: `np.zeros()`, `np.ones()`, `np.arange()`, `np.full()`, `np.eye()`
-
-### 2. Array Properties & Data Types
-- Checking properties: `.shape`, `.size`, `.ndim`, `.dtype`
-- Type casting with `.astype()`
-- Aggregation functions: `sum()`, `mean()`, `min()`, `max()`, `std()`, `var()`
-
-### 3. Indexing, Slicing & Reshaping
-- 0-based and negative indexing
-- Array slicing `[start:stop:step]`
-- Fancy indexing & Boolean masking (Filtering data)
-- Reshaping (`.reshape()`) and Flattening (`.ravel()` vs `.flatten()`)
-
-### 4. Array Manipulation & Joining
-- Adding elements: `np.append()`, `np.insert()`
-- Joining/Combining: `np.concatenate()`, `np.vstack()`, `np.hstack()`
-- Splitting arrays: `np.split()`, `np.hsplit()`, `np.vsplit()`
-
-### 5. Broadcasting & Vectorization
-- Rules of Broadcasting (matching dimensions and shape expansion)
-- Performance comparison: Vectorized operations vs Python loops
-
-### 6. Data Cleaning Workflow
-- Detecting missing values with `np.isnan()` and `np.isinf()`
-- Replacing missing/infinite values using `np.nan_to_num()`
-- Handling outliers and data filtering techniques
-
+ 
+## Why I made this
+ 
+I wanted to move from plain Python lists to array-based computing, which is the base for data analysis and ML work. Writing a small script per concept helped me understand each one properly instead of just reading about it.
+ 
+Still adding to it as I learn more (linear algebra, `np.random`, sorting/searching).
+ 
 ---
-
-## ⚡ Quick Code Snippet
-
-```python
-import numpy as np
-
-# Creating a 2D array
-arr = np.array([[10, 20, 30], [40, 50, 60]])
-
-# Filtering elements greater than 25 (Boolean Masking)
-filtered = arr[arr > 25]
-
-print("Filtered Values:", filtered)  # Output: [30 40 50 60]
-```
-
----
-
-## 📂 Project Structure
-
-```text
-.
-├── 01_basics.py          # Array creation & properties
-├── 02_indexing.py        # Slicing, boolean masking & reshaping
-├── 03_broadcasting.py    # Vectorization & broadcasting rules
-├── 04_data_cleaning.py   # Handling NaNs and outliers
-├── .gitignore            # Ignores venv and cache files
-└── README.md             # Documentation
-```
-
----
-
-## ⭐ Support
-
-If you found this repository cool for NumPy (you should), feel free to give it a **Star (⭐)**!
+ 
+Built by **Qaem Hussain Rizvi**
+ 
