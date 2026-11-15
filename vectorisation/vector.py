@@ -1,4 +1,8 @@
-import numpy as np
+"""
+Vcetorinsation helps in performing operations on entire array without using loops 
+
+
+"""import numpy as np
 
 list1 = np.array ([10,20,30])
 
